@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 10% 97%;
+    --foreground: 150 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 20% 15%;
+
+    --primary: 150 60% 25%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 150 15% 92%;
+    --secondary-foreground: 150 20% 15%;
+
+    --muted: 150 10% 95%;
+    --muted-foreground: 150 10% 45%;
+
+    --accent: 45 90% 65%;
+    --accent-foreground: 150 20% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 150 15% 85%;
+    --input: 150 15% 90%;
+    --ring: 150 60% 25%;
+
+    --radius: 0.75rem;
+
+    /* Islamic Design Tokens */
+    --islamic-green: 150 60% 25%;
+    --islamic-green-light: 150 40% 35%;
+    --islamic-gold: 45 90% 65%;
+    --islamic-gold-dark: 35 80% 55%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--islamic-green)), hsl(var(--islamic-green-light)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--islamic-gold)), hsl(var(--islamic-gold-dark)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsl(var(--islamic-green) / 0.1);
+    --shadow-header: 0 2px 10px -2px hsl(var(--islamic-green) / 0.15);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 150 15% 8%;
+    --foreground: 150 10% 90%;
+
+    --card: 150 15% 12%;
+    --card-foreground: 150 10% 90%;
+
+    --popover: 150 15% 12%;
+    --popover-foreground: 150 10% 90%;
+
+    --primary: 150 50% 35%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 150 10% 18%;
+    --secondary-foreground: 150 10% 80%;
+
+    --muted: 150 10% 15%;
+    --muted-foreground: 150 5% 60%;
+
+    --accent: 45 85% 60%;
+    --accent-foreground: 150 15% 8%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 150 10% 20%;
+    --input: 150 10% 18%;
+    --ring: 150 50% 35%;
+
+    /* Dark mode Islamic tokens */
+    --islamic-green: 150 50% 35%;
+    --islamic-green-light: 150 45% 40%;
+    --islamic-gold: 45 85% 60%;
+    --islamic-gold-dark: 35 75% 50%;
+    
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--islamic-green)), hsl(var(--islamic-green-light)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--islamic-gold)), hsl(var(--islamic-gold-dark)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    
+    /* Dark shadows */
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-header: 0 2px 10px -2px hsl(0 0% 0% / 0.4);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  .font-arabic {
+    font-family: 'Amiri', 'Traditional Arabic', 'Noto Sans Arabic', serif;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Custom scrollbar styles */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thumb-muted {
+    scrollbar-color: hsl(var(--muted-foreground)) transparent;
+  }
+  
+  .scrollbar-track-transparent {
+    scrollbar-track-color: transparent;
+  }
+  
+  /* Webkit scrollbar styles for better browser support */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.5);
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--muted-foreground) / 0.8);
+  }
+}
